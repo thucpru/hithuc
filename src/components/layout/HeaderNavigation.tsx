@@ -60,7 +60,7 @@ export function HeaderNavigation() {
               </SheetTrigger>
               <SheetContent side="left" className="w-[280px]">
                 <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
+                  <SheetTitle>{t(UI_TEXT.menu)}</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-8">
                   <ul className="flex flex-col gap-6">

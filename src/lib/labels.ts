@@ -26,4 +26,7 @@ export const UI_TEXT = {
   backToBlog: { vi: '← Quay lại Blog', en: '← Back to Blog' },
   loadError: { vi: 'Không tải được dữ liệu', en: 'Failed to load data' },
   retry: { vi: 'Thử lại', en: 'Retry' },
+  menu: { vi: 'Menu', en: 'Menu' },
+  notFoundTitle: { vi: 'Không tìm thấy trang', en: 'Page not found' },
+  backHome: { vi: '← Về trang chủ', en: '← Back to home' },
 } satisfies Record<string, Localized>;

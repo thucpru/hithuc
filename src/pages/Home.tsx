@@ -44,12 +44,29 @@ export default function Home() {
     );
   }
 
+  const structuredData = profile
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: profile.name,
+        url: typeof window !== 'undefined' ? window.location.origin : undefined,
+        description: t(profile.tagline),
+        author: {
+          '@type': 'Person',
+          name: profile.name,
+          email: profile.contact.email,
+          sameAs: profile.socials.map((s) => s.url),
+        },
+      }
+    : undefined;
+
   return (
     <Layout fullPage>
       <SEO
         title={profile ? `${profile.name} — ${t(profile.tagline)}` : 'hithuc.com'}
         description={profile ? t(profile.tagline) : ''}
         type="website"
+        structuredData={structuredData}
       />
 
       {profile && (

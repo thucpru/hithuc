@@ -93,44 +93,41 @@ npm run preview
 
 ## 📝 Content Management
 
-### Adding a New Series
+Content is bilingual (`{vi,en}`) and authored in **EmDash** (Cloudflare CMS) in
+production. Locally it falls back to `public/data/*.json`:
+- `projects.json` — web / app / design projects
+- `posts.json` — blog posts
+- `profile.json` — owner profile
 
-1. Create JSON file in `public/data/series/[series-name].json`
-2. Add route in `App.tsx`
-3. Add navigation link in `HeaderNavigation.tsx`
-
-### Updating Photographer Profile
-
-Edit `public/data/photographer.json`:
-- Name, tagline, biography
-- Client lists
-- Contact information
-- Portrait image URL
+The React app reads `/api/*` (Worker proxy → EmDash); if the Worker/EmDash is
+absent it loads the static JSON instead.
 
 ## 🎯 Performance Targets
 
-- **LCP**: <2.5s
-- **FID**: <100ms
-- **CLS**: <0.1
-- **Lighthouse**: 90+ all categories
+- **LCP**: <2.5s · **CLS**: <0.1 · **Lighthouse**: 90+
+- The chatbot (Pipecat + Daily, ~400KB) is lazy-loaded on first open, kept off
+  the initial bundle.
 
-## 🚀 Deployment
+## 🚀 Deployment (Cloudflare)
 
-### Via Lovable
-Simply open [Lovable](https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae) and click Share → Publish
+The site is a Worker serving the SPA + `/api/*` (see `wrangler.jsonc`):
 
-### Manual Deployment
-Build files in `dist/` can be deployed to Vercel, Netlify, AWS S3, or any static host.
+```bash
+npm run cf:deploy        # vite build && wrangler deploy
+```
 
-**Before deploying:**
-- Update `public/sitemap.xml` with your domain
-- Update `public/robots.txt` with your domain
-- Replace placeholder images with actual photography
-- Update photographer name and branding throughout
+Architecture:
+- **hithuc.com** — React SPA + Worker (`/api/*` CMS proxy, `/api/agent/*`,
+  `/api/kb/*`, dynamic `/sitemap.xml`).
+- **cms.hithuc.com** — EmDash headless CMS (admin, D1, R2, REST API).
+- **Pipecat Cloud** — voice/text chatbot (`bot/`).
 
-## 🌐 Custom Domain
-
-Navigate to Project > Settings > Domains in Lovable and click Connect Domain.
+**Before going live:**
+- Point `hithuc.com` and `cms.hithuc.com` at Cloudflare; set `EMDASH_BASE`.
+- Set Worker secrets (Turnstile, Pipecat, KB) and create Vectorize + KV
+  (commands in `wrangler.jsonc`).
+- Deploy the bot (`bot/README.md`).
+- `robots.txt` and `/sitemap.xml` already use `hithuc.com`.
 
 [Learn more about custom domains](https://docs.lovable.dev/features/custom-domain#custom-domain)
 

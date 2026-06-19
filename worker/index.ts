@@ -12,6 +12,7 @@ import { Env, json } from './env';
 import { routeContent } from './content';
 import { handleAgentSession } from './agent';
 import { handleKbSearch, reindex } from './kb';
+import { handleSitemap } from './sitemap';
 
 const CONTENT_EDGE_TTL = 60; // seconds
 
@@ -22,6 +23,9 @@ export default {
 
     if (pathname.startsWith('/api/')) {
       return handleApi(request, url, env, ctx);
+    }
+    if (pathname === '/sitemap.xml') {
+      return handleSitemap(url.origin, env);
     }
     // Everything else → static assets (SPA fallback via wrangler config).
     return env.ASSETS.fetch(request);
