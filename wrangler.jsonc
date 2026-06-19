@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hithuc",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-06-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    // Set to the deployed EmDash instance, e.g. "https://cms.hithuc.com".
+    // Leave empty to fall back to the static /data/*.json bundled in the build.
+    "EMDASH_BASE": ""
+  }
+  // Secret (optional, only if EmDash read API requires auth):
+  //   npx wrangler secret put EMDASH_TOKEN
+}

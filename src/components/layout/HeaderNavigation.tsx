@@ -23,6 +23,7 @@ export function HeaderNavigation() {
 
   const navItems: NavItem[] = [
     ...PROJECT_TYPES.map((type) => ({ to: `/work/${type}`, label: t(TYPE_LABELS[type]) })),
+    { to: "/blog", label: t(UI_TEXT.blog) },
     { to: "/about", label: t(UI_TEXT.about) },
   ];
 
