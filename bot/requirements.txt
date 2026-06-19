@@ -1,0 +1,7 @@
+# Pin to a known-good release before deploying. Verify the pinned version
+# resolves the Gemini 3.x function-calling "thought_signature" issue
+# (pipecat issues #3557 / #3290) — run the function-calling spike first.
+pipecat-ai[google,soniox,daily,silero,mem0]==0.0.100
+pipecatcloud
+httpx
+loguru

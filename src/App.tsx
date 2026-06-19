@@ -8,6 +8,7 @@ import { PortfolioProvider } from "@/context/PortfolioContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { Layout } from "@/components/layout/Layout";
 import { GallerySkeleton } from "@/components/gallery/GallerySkeleton";
+import { ChatLauncher } from "@/components/chat/ChatLauncher";
 
 // Lazy load page components for code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -51,6 +52,7 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
+            <ChatLauncher />
           </PortfolioProvider>
         </LanguageProvider>
       </BrowserRouter>

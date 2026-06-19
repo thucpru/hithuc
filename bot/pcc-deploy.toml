@@ -1,0 +1,6 @@
+agent_name = "hithuc-bot"
+image = "YOUR_DOCKERHUB_USER/hithuc-bot:0.1"
+secret_set = "hithuc-bot-secrets"
+
+[scaling]
+  min_agents = 0

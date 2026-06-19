@@ -12,10 +12,41 @@
     "enabled": true
   },
   "vars": {
-    // Set to the deployed EmDash instance, e.g. "https://cms.hithuc.com".
-    // Leave empty to fall back to the static /data/*.json bundled in the build.
+    // Deployed EmDash instance, e.g. "https://cms.hithuc.com".
+    // Empty → client falls back to the static /data/*.json in the build.
     "EMDASH_BASE": ""
-  }
-  // Secret (optional, only if EmDash read API requires auth):
-  //   npx wrangler secret put EMDASH_TOKEN
+  },
+
+  // --- Phase 3: chatbot / RAG ---
+  // Workers AI (embeddings for RAG).
+  "ai": { "binding": "AI" },
+
+  // Vectorize index. Create with:
+  //   npx wrangler vectorize create hithuc-kb --dimensions=1024 --metric=cosine
+  "vectorize": [{ "binding": "VEC", "index_name": "hithuc-kb" }],
+
+  // KV for usage counters / daily caps. Replace `id` with your namespace id:
+  //   npx wrangler kv namespace create RATE
+  "kv_namespaces": [
+    { "binding": "RATE", "id": "0000000000000000000000000000000a" }
+  ],
+
+  // Per-IP rate limit binding (20 session starts / 60s).
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "RATE_LIMITER",
+        "type": "ratelimit",
+        "namespace_id": "1001",
+        "simple": { "limit": 20, "period": 60 }
+      }
+    ]
+  },
+
+  // Cron: rebuild the RAG index from CMS content every 6 hours.
+  "triggers": { "crons": ["0 */6 * * *"] }
+
+  // Secrets (set with `npx wrangler secret put <NAME>`):
+  //   EMDASH_TOKEN (optional), TURNSTILE_SECRET, PIPECAT_API_KEY,
+  //   PIPECAT_AGENT, KB_REINDEX_SECRET
 }
