@@ -1,0 +1,129 @@
+{
+  "id": "portraits-01",
+  "title": "Portraits",
+  "slug": "portraits",
+  "description": "Warm portraits of creative people doing what they love",
+  "featured": true,
+  "images": [
+    {
+      "id": "portraits-001",
+      "src": "https://images.pexels.com/photos/19456424/pexels-photo-19456424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Casual portrait of a smiling young man in a denim jacket and red t-shirt, captured in a studio.",
+      "aspectRatio": 0.718,
+      "caption": {
+        "subject": "Maya Thompson",
+        "profession": "Coffee Shop Owner"
+      },
+      "metadata": {
+        "title": "Maya Thompson - Coffee Shop Owner",
+        "year": "2024",
+        "description": "Maya's warm smile reflects the joy she brings to her neighborhood through her cozy café, where she creates a welcoming space for artists, writers, and friends to gather over handcrafted lattes.",
+        "location": "Portland, OR",
+        "photographer": "Jonathan Borba",
+        "photographerUrl": "https://www.pexels.com/@jonathanborba",
+        "pexelsUrl": "https://www.pexels.com/photo/portrait-of-a-young-man-smiling-19456424/",
+        "series": "portraits"
+      }
+    },
+    {
+      "id": "portraits-002",
+      "src": "https://images.pexels.com/photos/10351047/pexels-photo-10351047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Close-up portrait of a smiling blonde woman with natural lighting and soft tones.",
+      "aspectRatio": 0.8,
+      "caption": {
+        "subject": "Alex Rivera",
+        "profession": "Music Teacher"
+      },
+      "metadata": {
+        "title": "Alex Rivera - Music Teacher",
+        "year": "2024",
+        "description": "Captured during a break from lessons, Alex's friendly demeanor shows the passion they bring to teaching guitar to kids in their community. Their patience and enthusiasm make every student feel like a rockstar.",
+        "location": "Austin, TX",
+        "photographer": "Liza Bakay",
+        "photographerUrl": "https://www.pexels.com/@liza-bakay-134459655",
+        "pexelsUrl": "https://www.pexels.com/photo/close-up-shot-of-a-pretty-blonde-haired-woman-smiling-10351047/",
+        "series": "portraits"
+      }
+    },
+    {
+      "id": "portraits-003",
+      "src": "https://images.pexels.com/photos/7191768/pexels-photo-7191768.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "A close-up portrait of a smiling man with facial hair against a white background.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Emma Chen",
+        "profession": "Baker & Recipe Creator"
+      },
+      "metadata": {
+        "title": "Emma Chen - Baker & Recipe Creator",
+        "year": "2024",
+        "description": "Emma's genuine smile says it all – she loves what she does. From her home kitchen, she shares her grandmother's recipes with thousands of followers, spreading warmth one cookie at a time.",
+        "location": "San Francisco, CA",
+        "photographer": "SHVETS production",
+        "photographerUrl": "https://www.pexels.com/@shvets-production",
+        "pexelsUrl": "https://www.pexels.com/photo/close-up-shot-of-a-man-smiling-7191768/",
+        "series": "portraits"
+      }
+    },
+    {
+      "id": "portraits-004",
+      "src": "https://images.pexels.com/photos/16142861/pexels-photo-16142861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "A black and white portrait of a joyful shirtless man with a beard, conveying happiness.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Jordan Martinez",
+        "profession": "Community Gardener"
+      },
+      "metadata": {
+        "title": "Jordan Martinez - Community Gardener",
+        "year": "2024",
+        "description": "With dirt under their nails and joy in their eyes, Jordan tends to the community garden that brings neighbors together. Their friendly spirit helps everyone feel at home among the tomatoes and sunflowers.",
+        "location": "Brooklyn, NY",
+        "photographer": "melvin ankrah",
+        "photographerUrl": "https://www.pexels.com/@melvin-ankrah-37724",
+        "pexelsUrl": "https://www.pexels.com/photo/portrait-of-a-laughing-man-16142861/",
+        "series": "portraits"
+      }
+    },
+    {
+      "id": "portraits-005",
+      "src": "https://images.pexels.com/photos/8107290/pexels-photo-8107290.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Close-up portrait of a smiling woman with eyeglasses and long hair against a neutral background.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Sophie Anderson",
+        "profession": "Children's Book Illustrator"
+      },
+      "metadata": {
+        "title": "Sophie Anderson - Children's Book Illustrator",
+        "year": "2024",
+        "description": "Sophie's warm presence matches the whimsical characters she creates. Working from her light-filled studio, she brings stories to life with illustrations that spark imagination in young readers everywhere.",
+        "location": "Seattle, WA",
+        "photographer": "Karola G",
+        "photographerUrl": "https://www.pexels.com/@karola-g",
+        "pexelsUrl": "https://www.pexels.com/photo/smiling-woman-in-black-framed-eyeglasses-8107290/",
+        "series": "portraits"
+      }
+    },
+    {
+      "id": "portraits-006",
+      "src": "https://images.pexels.com/photos/17903171/pexels-photo-17903171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Portrait of a smiling young woman with natural beauty and blue eyes against a red background.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Liam O'Connor",
+        "profession": "Yoga Instructor"
+      },
+      "metadata": {
+        "title": "Liam O'Connor - Yoga Instructor",
+        "year": "2024",
+        "description": "Liam's approachable nature makes everyone feel welcome in his classes, from first-timers to seasoned practitioners. His calm, friendly energy creates a safe space for personal growth and mindfulness.",
+        "location": "Santa Monica, CA",
+        "photographer": "Anton Chubarov",
+        "photographerUrl": "https://www.pexels.com/@anton-chubarov-602688651",
+        "pexelsUrl": "https://www.pexels.com/photo/a-young-woman-with-blonde-hair-and-blue-eyes-17903171/",
+        "series": "portraits"
+      }
+    }
+  ]
+}

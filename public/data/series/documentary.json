@@ -1,0 +1,129 @@
+{
+  "id": "documentary-01",
+  "title": "Life Unscripted",
+  "slug": "documentary",
+  "description": "Candid moments from everyday life, celebrating the beauty in simple, authentic experiences",
+  "featured": true,
+  "images": [
+    {
+      "id": "documentary-001",
+      "src": "https://images.pexels.com/photos/34530201/pexels-photo-34530201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "A cheerful man in a cap and jacket smiles at a bustling outdoor market in London, UK.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Morning Rituals",
+        "profession": "Daily Life"
+      },
+      "metadata": {
+        "title": "Morning Rituals - Daily Life",
+        "year": "2024",
+        "description": "Those quiet moments before the day begins – brewing coffee, stretching in morning light, taking a deep breath. These simple rituals ground us and set the tone for what's ahead.",
+        "location": "Home",
+        "photographer": "Jacqueline Goncalves",
+        "photographerUrl": "https://www.pexels.com/@jacqueline-goncalves-2155137161",
+        "pexelsUrl": "https://www.pexels.com/photo/casual-portrait-of-smiling-man-at-outdoor-market-34530201/",
+        "series": "documentary"
+      }
+    },
+    {
+      "id": "documentary-002",
+      "src": "https://images.pexels.com/photos/34519672/pexels-photo-34519672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Black and white portrait of an elderly man sitting at a market stall.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Neighborhood Walks",
+        "profession": "Everyday Adventure"
+      },
+      "metadata": {
+        "title": "Neighborhood Walks - Everyday Adventure",
+        "year": "2024",
+        "description": "There's magic in familiar places when you take time to notice. A friendly wave to neighbors, discovering new flowers blooming, finding beauty in the everyday scenes we often rush past.",
+        "location": "Local Streets",
+        "photographer": "Ebahir",
+        "photographerUrl": "https://www.pexels.com/@ebahir",
+        "pexelsUrl": "https://www.pexels.com/photo/elderly-man-sitting-in-market-portrait-34519672/",
+        "series": "documentary"
+      }
+    },
+    {
+      "id": "documentary-003",
+      "src": "https://images.pexels.com/photos/12327578/pexels-photo-12327578.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "A person with an umbrella walking through a colorful urban street during a rainy day.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Cooking Together",
+        "profession": "Shared Moments"
+      },
+      "metadata": {
+        "title": "Cooking Together - Shared Moments",
+        "year": "2024",
+        "description": "The best meals are made with company. Chopping vegetables side by side, sharing stories and laughter, creating something delicious together – these are the moments that become memories.",
+        "location": "Home Kitchen",
+        "photographer": "Yura Forrat",
+        "photographerUrl": "https://www.pexels.com/@yuraforrat",
+        "pexelsUrl": "https://www.pexels.com/photo/unrecognizable-person-walking-in-rain-under-umbrella-12327578/",
+        "series": "documentary"
+      }
+    },
+    {
+      "id": "documentary-004",
+      "src": "https://images.pexels.com/photos/4668523/pexels-photo-4668523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "A carefree woman enjoying nature, showcasing happiness and freedom in a sunlit field.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Sunset Pause",
+        "profession": "Mindful Break"
+      },
+      "metadata": {
+        "title": "Sunset Pause - Mindful Break",
+        "year": "2024",
+        "description": "Taking a moment to watch the day wind down, breathing in the golden hour light. Sometimes the best thing we can do is simply stop and appreciate the beauty around us.",
+        "location": "City Park",
+        "photographer": "Vlada Karpovich",
+        "photographerUrl": "https://www.pexels.com/@vlada-karpovich",
+        "pexelsUrl": "https://www.pexels.com/photo/photo-of-woman-wearing-blue-dress-shirt-4668523/",
+        "series": "documentary"
+      }
+    },
+    {
+      "id": "documentary-005",
+      "src": "https://images.pexels.com/photos/32931765/pexels-photo-32931765.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Stylish woman in shades poses outdoors against bold urban backdrop. City vibe.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Creative Play",
+        "profession": "Joy in Motion"
+      },
+      "metadata": {
+        "title": "Creative Play - Joy in Motion",
+        "year": "2024",
+        "description": "Whether it's dancing, painting, or just goofing around with friends, play isn't just for kids. These lighthearted moments remind us not to take life too seriously.",
+        "location": "Community Space",
+        "photographer": "Artist   Linbei",
+        "photographerUrl": "https://www.pexels.com/@luhong",
+        "pexelsUrl": "https://www.pexels.com/photo/trendy-young-woman-posing-in-urban-setting-32931765/",
+        "series": "documentary"
+      }
+    },
+    {
+      "id": "documentary-006",
+      "src": "https://images.pexels.com/photos/7208641/pexels-photo-7208641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Close-up of a woman holding pills and a glass of water indoors.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Afternoon Connections",
+        "profession": "Friendship"
+      },
+      "metadata": {
+        "title": "Afternoon Connections - Friendship",
+        "year": "2024",
+        "description": "Real conversations over good coffee. No phones, no distractions – just two friends catching up, sharing dreams and worries, being present with each other.",
+        "location": "Local Café",
+        "photographer": "Darina Belonogova",
+        "photographerUrl": "https://www.pexels.com/@darina-belonogova",
+        "pexelsUrl": "https://www.pexels.com/photo/a-woman-drinking-her-medications-7208641/",
+        "series": "documentary"
+      }
+    }
+  ]
+}

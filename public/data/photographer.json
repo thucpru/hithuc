@@ -1,0 +1,56 @@
+{
+  "name": "Jamie Rodriguez",
+  "tagline": "People Photographer & Storyteller",
+  "biography": {
+    "philosophy": "I truly believe that everyone has a story worth telling. My job isn't to create something that isn't there – it's to help people feel comfortable enough to let their authentic selves shine through. Whether we're shooting in a cozy coffee shop or your favorite park, I want you to feel like you're just hanging out with a friend who happens to have a camera. The best photos happen when people forget they're being photographed and just... be themselves. That's the magic I'm always chasing.",
+    "background": "Photography found me in the most unexpected way – through photographing my friends and their small businesses. What started as helping out turned into a passion I couldn't ignore. I love meeting new people and hearing their stories, so becoming a photographer felt like the most natural thing in the world. Over the years, I've had the joy of photographing everyone from local shop owners to artists, teachers, and community leaders. Each person I meet teaches me something new about life, resilience, and what it means to do work you love.",
+    "experience": "For the past eight years, I've been fortunate to work with amazing people who are doing work that matters to them. I specialize in natural, warm portraits that capture who you really are – not some stiff, overly-posed version of yourself. My approach is simple: we talk, we laugh, we walk around, and I take photos along the way. Most of my clients tell me they had fun during their session, which is exactly what I'm going for. Life's too short for uncomfortable photo shoots! I work with natural light whenever possible because I love how it makes everyone glow.",
+    "currentFocus": "Right now, I'm working on a passion project photographing people in my community who are making a difference in small but meaningful ways – from the teacher who started a community garden to the barista who knows everyone's name and story. I'm also available for portrait sessions, small business branding, and any project where you want photos that feel genuine and warm. If you're looking for someone who'll make you feel at ease and capture the real you, I'd love to chat over coffee (my treat!) and see if we're a good fit."
+  },
+  "contact": {
+    "email": "hello@jamierodriguez.photo",
+    "phone": "+1 (503) 555-0187"
+  },
+  "clients": [
+    {
+      "category": "Small Businesses & Cafés",
+      "clients": [
+        "Moonlight Coffee Roasters",
+        "The Cozy Corner Bookshop",
+        "Verde Plant Studio",
+        "Sweet Provisions Bakery",
+        "Harmony Yoga Collective",
+        "Paper & Ink Stationery"
+      ]
+    },
+    {
+      "category": "Creative Professionals",
+      "clients": [
+        "Local Artists Collective",
+        "Portland Music Teachers Alliance",
+        "Community Theater Workshop",
+        "Freelance Writers Network",
+        "Neighborhood Craft Fair",
+        "Indie Podcast Network"
+      ]
+    },
+    {
+      "category": "Community Organizations",
+      "clients": [
+        "Friends of the Library",
+        "Community Garden Alliance",
+        "Local Food Bank",
+        "After-School Arts Program",
+        "Neighborhood Association",
+        "Weekend Farmers Market"
+      ]
+    }
+  ],
+  "portraitImage": {
+    "src": "https://images.pexels.com/photos/7014866/pexels-photo-7014866.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "alt": "Portrait of Jamie Rodriguez, friendly photographer with camera",
+    "photographer": "George Milton",
+    "photographerUrl": "https://www.pexels.com/@george-milton",
+    "pexelsUrl": "https://www.pexels.com/photo/positive-woman-with-photo-camera-sitting-in-living-room-7014866/"
+  }
+}

@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+:root {
+  /* Warm & Cozy Photography Portfolio Palette */
+  --background: hsl(35 40% 98%);        /* Warm cream - cozy aesthetic */
+  --foreground: hsl(25 20% 15%);        /* Warm dark brown - soft contrast */
+  --accent: hsl(20 70% 55%);            /* Terracotta - warm emphasis */
+
+  /* Warm Gray Scale for Hierarchy */
+  --gray-50: hsl(30 20% 97%);          /* Warm subtle backgrounds */
+  --gray-100: hsl(30 18% 94%);         /* Warm page backgrounds */
+  --gray-200: hsl(30 15% 88%);         /* Warm subtle borders */
+  --gray-300: hsl(30 12% 75%);         /* Warm dividers */
+  --gray-500: hsl(25 10% 50%);         /* Warm secondary text */
+  --gray-700: hsl(25 15% 30%);         /* Warm body text */
+  --gray-900: hsl(25 20% 20%);         /* Warm headings */
+
+  /* Shadcn UI compatibility */
+  --card: hsl(35 40% 98%);
+  --card-foreground: hsl(25 20% 15%);
+  --popover: hsl(35 40% 98%);
+  --popover-foreground: hsl(25 20% 15%);
+  --primary: hsl(25 20% 20%);
+  --primary-foreground: hsl(35 40% 98%);
+  --secondary: hsl(30 18% 94%);
+  --secondary-foreground: hsl(25 20% 20%);
+  --muted: hsl(30 18% 94%);
+  --muted-foreground: hsl(25 10% 50%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(35 40% 98%);
+  --border: hsl(30 15% 88%);
+  --input: hsl(30 15% 88%);
+  --ring: hsl(20 70% 55%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Warm dark mode for cozy evening browsing */
+  --background: hsl(25 15% 12%);
+  --foreground: hsl(35 30% 95%);
+  --accent: hsl(20 60% 50%);
+
+  --gray-50: hsl(25 12% 15%);
+  --gray-100: hsl(25 10% 18%);
+  --gray-200: hsl(25 8% 25%);
+  --gray-300: hsl(25 6% 35%);
+  --gray-500: hsl(30 8% 55%);
+  --gray-700: hsl(30 15% 75%);
+  --gray-900: hsl(35 25% 92%);
+
+  --card: hsl(25 15% 12%);
+  --card-foreground: hsl(35 30% 95%);
+  --popover: hsl(25 15% 12%);
+  --popover-foreground: hsl(35 30% 95%);
+  --primary: hsl(35 30% 95%);
+  --primary-foreground: hsl(25 15% 12%);
+  --secondary: hsl(25 10% 18%);
+  --secondary-foreground: hsl(35 30% 95%);
+  --muted: hsl(25 10% 18%);
+  --muted-foreground: hsl(30 8% 55%);
+  --border: hsl(25 8% 25%);
+  --input: hsl(25 8% 25%);
+  --ring: hsl(20 60% 50%);
+}
+
+@theme {
+  /* Color Variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-500: var(--gray-500);
+  --color-gray-700: var(--gray-700);
+  --color-gray-900: var(--gray-900);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Typography - Warm & Friendly Photography Portfolio */
+  --font-serif: 'Hind', sans-serif;                 /* Clean, legible sans from Google Fonts */
+  --font-sans: 'Poppins', system-ui, sans-serif;    /* Geometric, friendly sans from Google Fonts */
+  
+  /* Typography Scale */
+  --text-large-title: 2.125rem;       /* 34px - Photographer Name */
+  --text-large-title-line-height: 2.5625rem; /* 41px */
+  --text-title-1: 1.75rem;            /* 28px - Series Names */
+  --text-title-1-line-height: 2.125rem;      /* 34px */
+  --text-title-2: 1.375rem;           /* 22px - Section Headings */
+  --text-title-2-line-height: 1.75rem;       /* 28px */
+  --text-headline: 1.0625rem;         /* 17px - Navigation, Labels */
+  --text-headline-line-height: 1.375rem;     /* 22px */
+  --text-body: 1.0625rem;             /* 17px - Body Text */
+  --text-body-line-height: 1.375rem;         /* 22px */
+  --text-subhead: 0.9375rem;          /* 15px - Captions */
+  --text-subhead-line-height: 1.25rem;       /* 20px */
+  --text-footnote: 0.8125rem;         /* 13px - Footer */
+  --text-footnote-line-height: 1rem;         /* 16px */
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus visible styles for accessibility */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+  
+  /* Gallery Utilities */
+  .filmstrip-container {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 0;
+    /* Performance optimizations */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+  
+  .scroll-snap-center {
+    scroll-snap-align: center;
+  }
+  
+  /* Responsive Image Widths for Filmstrip */
+  @media (max-width: 767px) {
+    /* Mobile: 3-4 images visible */
+    .filmstrip-container > div {
+      min-width: 25vw;
+      max-width: 33.33vw;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* Tablet: 4-5 images visible */
+    .filmstrip-container > div {
+      min-width: 20vw;
+      max-width: 25vw;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    /* Desktop: 6-7 images visible */
+    .filmstrip-container > div {
+      min-width: 14.28vw;
+      max-width: 16.67vw;
+    }
+  }
+  
+  /* Skeleton pulse animation */
+  @keyframes skeleton-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .animate-pulse {
+    animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Typography Classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}

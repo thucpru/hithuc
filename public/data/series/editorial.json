@@ -1,0 +1,129 @@
+{
+  "id": "editorial-01",
+  "title": "People & Passion",
+  "slug": "editorial",
+  "description": "Professional portraits of people pursuing their passions and making a difference",
+  "featured": false,
+  "images": [
+    {
+      "id": "editorial-001",
+      "src": "https://images.pexels.com/photos/2921424/pexels-photo-2921424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "A stunning portrait of a woman adorned with a floral headpiece, highlighting beauty and elegance.",
+      "aspectRatio": 0.8,
+      "caption": {
+        "subject": "Sarah Kim",
+        "profession": "Freelance Graphic Designer"
+      },
+      "metadata": {
+        "title": "Sarah Kim - Freelance Graphic Designer",
+        "year": "2024",
+        "description": "Sarah brings warmth and creativity to every project. Working from her bright studio space, she helps small businesses tell their stories through thoughtful, accessible design that connects with real people.",
+        "location": "Chicago, IL",
+        "photographer": "Ali Pazani",
+        "photographerUrl": "https://www.pexels.com/@alipazani",
+        "pexelsUrl": "https://www.pexels.com/photo/portrait-photo-of-woman-wearing-flower-crown-2921424/",
+        "series": "editorial"
+      }
+    },
+    {
+      "id": "editorial-002",
+      "src": "https://images.pexels.com/photos/32160350/pexels-photo-32160350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Close-up portrait of a young woman with braided hair wearing gold jewelry against a warm brown background.",
+      "aspectRatio": 0.8,
+      "caption": {
+        "subject": "Marcus Johnson",
+        "profession": "Podcast Host"
+      },
+      "metadata": {
+        "title": "Marcus Johnson - Podcast Host",
+        "year": "2024",
+        "description": "Marcus's friendly interviewing style puts everyone at ease. His podcast celebrates everyday heroes in the community, sharing stories of kindness, resilience, and the power of human connection.",
+        "location": "Denver, CO",
+        "photographer": "Tochukwu  Ekeh",
+        "photographerUrl": "https://www.pexels.com/@tochukwu-ekeh-2149052634",
+        "pexelsUrl": "https://www.pexels.com/photo/elegant-portrait-of-a-young-woman-with-braided-hair-32160350/",
+        "series": "editorial"
+      }
+    },
+    {
+      "id": "editorial-003",
+      "src": "https://images.pexels.com/photos/7707306/pexels-photo-7707306.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Portrait of a young woman with red hair holding a laptop indoors.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Lily Patel",
+        "profession": "Wellness Coach"
+      },
+      "metadata": {
+        "title": "Lily Patel - Wellness Coach",
+        "year": "2024",
+        "description": "Lily's approachable method makes wellness feel achievable for everyone. She focuses on small, sustainable changes that fit real life, meeting people where they are with compassion and encouragement.",
+        "location": "Miami, FL",
+        "photographer": "Alena Darmel",
+        "photographerUrl": "https://www.pexels.com/@a-darmel",
+        "pexelsUrl": "https://www.pexels.com/photo/portrait-of-a-woman-with-red-hair-holding-a-laptop-7707306/",
+        "series": "editorial"
+      }
+    },
+    {
+      "id": "editorial-004",
+      "src": "https://images.pexels.com/photos/31497540/pexels-photo-31497540.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Portrait of a confident woman in a blazer offering handshake, signifying a professional and friendly gesture.",
+      "aspectRatio": 0.687,
+      "caption": {
+        "subject": "Noah Williams",
+        "profession": "Local Historian"
+      },
+      "metadata": {
+        "title": "Noah Williams - Local Historian",
+        "year": "2024",
+        "description": "Noah's tours are less about dates and more about stories. His friendly, engaging style brings history to life, connecting past and present in ways that make everyone feel part of the ongoing story.",
+        "location": "Charleston, SC",
+        "photographer": "Bastian Riccardi",
+        "photographerUrl": "https://www.pexels.com/@rccbtn",
+        "pexelsUrl": "https://www.pexels.com/photo/confident-woman-in-business-suit-reaching-out-31497540/",
+        "series": "editorial"
+      }
+    },
+    {
+      "id": "editorial-005",
+      "src": "https://images.pexels.com/photos/7897377/pexels-photo-7897377.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Minimalist portrait of a young woman in a red strap, captured in a thoughtful pose.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Ava Santos",
+        "profession": "Florist & Workshop Host"
+      },
+      "metadata": {
+        "title": "Ava Santos - Florist & Workshop Host",
+        "year": "2024",
+        "description": "Ava creates more than arrangements – she creates experiences. Her warm, patient teaching style helps anyone feel like they can create something beautiful, fostering creativity and confidence.",
+        "location": "Portland, OR",
+        "photographer": "Darina Belonogova",
+        "photographerUrl": "https://www.pexels.com/@darina-belonogova",
+        "pexelsUrl": "https://www.pexels.com/photo/portrait-of-woman-in-red-tank-top-7897377/",
+        "series": "editorial"
+      }
+    },
+    {
+      "id": "editorial-006",
+      "src": "https://images.pexels.com/photos/11052798/pexels-photo-11052798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Woman in a black blazer and white shirt smiling joyfully with sunlight streaming in.",
+      "aspectRatio": 0.667,
+      "caption": {
+        "subject": "Ethan Brooks",
+        "profession": "Dog Trainer & Advocate"
+      },
+      "metadata": {
+        "title": "Ethan Brooks - Dog Trainer & Advocate",
+        "year": "2024",
+        "description": "Ethan's gentle, positive approach works wonders with both dogs and their humans. His friendly patience and genuine love for animals creates lasting bonds and happy, well-adjusted pets.",
+        "location": "Boulder, CO",
+        "photographer": "Beatriz   Fernandes",
+        "photographerUrl": "https://www.pexels.com/@beatriz-fernandes-3765504",
+        "pexelsUrl": "https://www.pexels.com/photo/smiling-woman-in-black-blazer-11052798/",
+        "series": "editorial"
+      }
+    }
+  ]
+}
