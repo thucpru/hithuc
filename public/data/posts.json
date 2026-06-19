@@ -1,0 +1,40 @@
+[
+  {
+    "slug": "building-on-cloudflare",
+    "status": "published",
+    "publishedAt": "2026-02-10",
+    "cover": "https://picsum.photos/seed/post-cloudflare/1200/630",
+    "tags": ["Cloudflare", "Workers", "Notes"],
+    "title": {
+      "vi": "Xây dựng mọi thứ trên Cloudflare",
+      "en": "Building everything on Cloudflare"
+    },
+    "excerpt": {
+      "vi": "Vài ghi chú khi đưa cả site, CMS và API lên hạ tầng edge của Cloudflare.",
+      "en": "A few notes from moving the whole site, CMS and API onto Cloudflare's edge."
+    },
+    "body": {
+      "vi": "## Vì sao Cloudflare\n\nMình muốn một hạ tầng **đơn giản, rẻ và nhanh**. Workers + D1 + R2 cho phép chạy cả site lẫn API ở edge mà gần như không tốn chi phí ở mức traffic cá nhân.\n\n- Triển khai một lệnh\n- Cache ở edge\n- Không server để bảo trì\n\nBài sau mình sẽ nói về CMS.",
+      "en": "## Why Cloudflare\n\nI wanted infrastructure that is **simple, cheap and fast**. Workers + D1 + R2 let me run both the site and the API at the edge for almost nothing at personal traffic.\n\n- One-command deploy\n- Edge caching\n- No servers to maintain\n\nIn the next post I'll talk about the CMS."
+    }
+  },
+  {
+    "slug": "designing-in-two-languages",
+    "status": "published",
+    "publishedAt": "2026-03-02",
+    "cover": "https://picsum.photos/seed/post-bilingual/1200/630",
+    "tags": ["i18n", "Design"],
+    "title": {
+      "vi": "Thiết kế cho hai ngôn ngữ",
+      "en": "Designing in two languages"
+    },
+    "excerpt": {
+      "vi": "Cách mình giữ nội dung Việt và Anh song song mà không làm rối giao diện.",
+      "en": "How I keep Vietnamese and English content in sync without cluttering the UI."
+    },
+    "body": {
+      "vi": "## Song ngữ\n\nMỗi nội dung có hai phiên bản. Khó nhất là **giữ giọng văn nhất quán** ở cả hai ngôn ngữ, không chỉ dịch máy móc.",
+      "en": "## Bilingual\n\nEvery piece of content has two versions. The hardest part is **keeping a consistent voice** across both languages, not just translating mechanically."
+    }
+  }
+]

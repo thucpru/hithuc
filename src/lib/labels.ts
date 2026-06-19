@@ -22,6 +22,8 @@ export const UI_TEXT = {
   store: { vi: 'Cửa hàng', en: 'Store' },
   prev: { vi: 'Trước', en: 'Previous' },
   next: { vi: 'Tiếp', en: 'Next' },
+  noPosts: { vi: 'Chưa có bài viết nào.', en: 'No posts yet.' },
+  backToBlog: { vi: '← Quay lại Blog', en: '← Back to Blog' },
   loadError: { vi: 'Không tải được dữ liệu', en: 'Failed to load data' },
   retry: { vi: 'Thử lại', en: 'Retry' },
 } satisfies Record<string, Localized>;

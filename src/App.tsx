@@ -13,6 +13,8 @@ import { GallerySkeleton } from "@/components/gallery/GallerySkeleton";
 const Home = lazy(() => import("./pages/Home"));
 const Work = lazy(() => import("./pages/Work"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const Blog = lazy(() => import("./pages/Blog"));
+const PostDetail = lazy(() => import("./pages/PostDetail"));
 const About = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -41,6 +43,8 @@ const App = () => (
                 <Route path="/work" element={<Work />} />
                 <Route path="/work/:type" element={<Work />} />
                 <Route path="/project/:slug" element={<ProjectDetail />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<PostDetail />} />
                 <Route path="/about" element={<About />} />
                 {/* Legacy photography routes */}
                 <Route path="/series/:slug" element={<Navigate to="/work" replace />} />
