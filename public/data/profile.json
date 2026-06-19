@@ -1,0 +1,21 @@
+{
+  "name": "Hi Thực",
+  "tagline": {
+    "vi": "Solo builder — thiết kế và xây dựng web, app, sản phẩm số.",
+    "en": "Solo builder — designing and shipping web, apps and digital products."
+  },
+  "bio": {
+    "vi": "Mình là một solo builder: tự thiết kế, lập trình và vận hành các sản phẩm từ ý tưởng đến khi lên sóng. Mình thích những giao diện tối giản, tốc độ tải nhanh và trải nghiệm rõ ràng.\n\nTrang này tổng hợp các dự án **web**, **app** và **design** mình đã làm, kèm những bài viết chia sẻ quá trình.",
+    "en": "I'm a solo builder: I design, code and run products end to end, from idea to launch. I care about minimal interfaces, fast load times and clear experiences.\n\nThis site collects my **web**, **app** and **design** projects, along with notes from the build process."
+  },
+  "avatar": "https://picsum.photos/seed/hithuc-avatar/640/640",
+  "socials": [
+    { "label": "GitHub", "url": "https://github.com/" },
+    { "label": "X", "url": "https://x.com/" },
+    { "label": "LinkedIn", "url": "https://linkedin.com/" }
+  ],
+  "contact": {
+    "email": "4440design@gmail.com",
+    "phone": ""
+  }
+}

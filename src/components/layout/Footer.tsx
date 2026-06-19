@@ -1,9 +1,9 @@
 import { usePortfolio } from '@/context/PortfolioContext';
 
 export function Footer() {
-  const { photographer } = usePortfolio();
+  const { profile } = usePortfolio();
 
-  if (!photographer) return null;
+  if (!profile) return null;
 
   // Simple email obfuscation by replacing @ with [at]
   const obfuscateEmail = (email: string) => email.replace('@', '[at]');
@@ -15,24 +15,26 @@ export function Footer() {
           {/* Contact Links */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <a
-              href={`mailto:${photographer.contact.email}`}
+              href={`mailto:${profile.contact.email}`}
               className="hover:text-gray-700 transition-colors"
-              aria-label={`Email ${photographer.name}`}
+              aria-label={`Email ${profile.name}`}
             >
-              {obfuscateEmail(photographer.contact.email)}
+              {obfuscateEmail(profile.contact.email)}
             </a>
-            <a
-              href={`tel:${photographer.contact.phone}`}
-              className="hover:text-gray-700 transition-colors"
-              aria-label={`Call ${photographer.name}`}
-            >
-              {photographer.contact.phone}
-            </a>
+            {profile.contact.phone && (
+              <a
+                href={`tel:${profile.contact.phone}`}
+                className="hover:text-gray-700 transition-colors"
+                aria-label={`Call ${profile.name}`}
+              >
+                {profile.contact.phone}
+              </a>
+            )}
           </div>
 
           {/* Copyright */}
           <p className="text-center sm:text-right">
-            &copy; {new Date().getFullYear()} {photographer.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {profile.name}. All rights reserved.
           </p>
         </div>
       </div>

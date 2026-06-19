@@ -2,40 +2,50 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { usePortfolio } from "@/context/PortfolioContext";
+import { useT } from "@/context/LanguageContext";
+import { LanguageToggle } from "@/components/layout/LanguageToggle";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { PROJECT_TYPES } from "@/types/content";
+import { TYPE_LABELS, UI_TEXT } from "@/lib/labels";
+
+interface NavItem {
+  to: string;
+  label: string;
+}
 
 export function HeaderNavigation() {
-  const { photographer, series } = usePortfolio();
+  const { profile } = usePortfolio();
+  const t = useT();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  if (!photographer) return null;
+  if (!profile) return null;
 
-  const isActive = (path: string) => {
-    // For home page
-    if (path === "/" && location.pathname === "/") return true;
-    // For other pages
-    if (path !== "/" && location.pathname.startsWith(path)) return true;
-    return false;
-  };
+  const navItems: NavItem[] = [
+    ...PROJECT_TYPES.map((type) => ({ to: `/work/${type}`, label: t(TYPE_LABELS[type]) })),
+    { to: "/about", label: t(UI_TEXT.about) },
+  ];
 
-  const handleNavClick = () => {
-    setIsMenuOpen(false);
-  };
+  const isActive = (path: string) =>
+    path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
+
+  const linkClass = (active: boolean) =>
+    `transition-all duration-200 ${
+      active ? "font-semibold text-foreground" : "font-normal text-muted-foreground hover:text-gray-700"
+    }`;
 
   return (
     <div className="relative w-full">
-      {/* Top Row: Name + Contact Info */}
       <div className="flex items-end justify-between mb-2">
         <div className="flex justify-between md:justify-start w-full md:w-fit md:flex-col gap-4">
-          {/* Title */}
+          {/* Name */}
           <Link to="/" className="flex-shrink-0">
             <h1 className="font-sans text-2xl sm:text-[2.1rem] lg:text-[2.4rem] leading-tight font-bold tracking-tight text-foreground hover:opacity-80 transition-opacity">
-              {photographer.name}
+              {profile.name}
             </h1>
           </Link>
 
-          {/* Mobile: Hamburger Menu */}
+          {/* Mobile: hamburger */}
           <div className="sm:hidden">
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild>
@@ -53,51 +63,25 @@ export function HeaderNavigation() {
                 </SheetHeader>
                 <nav className="mt-8">
                   <ul className="flex flex-col gap-6">
-                    {series.map((s) => (
-                      <li key={s.id}>
+                    {navItems.map((item) => (
+                      <li key={item.to}>
                         <Link
-                          to={`/series/${s.slug}`}
-                          onClick={handleNavClick}
-                          className={`text-lg transition-all duration-200 ${
-                            isActive(`/series/${s.slug}`)
-                              ? "font-semibold text-foreground"
-                              : "font-normal text-muted-foreground hover:text-gray-700"
-                          }`}
+                          to={item.to}
+                          onClick={() => setIsMenuOpen(false)}
+                          className={`text-lg ${linkClass(isActive(item.to))}`}
                         >
-                          {s.title}
+                          {item.label}
                         </Link>
                       </li>
                     ))}
-                    <li>
-                      <Link
-                        to="/about"
-                        onClick={handleNavClick}
-                        className={`text-lg transition-all duration-200 ${
-                          isActive("/about")
-                            ? "font-semibold text-foreground"
-                            : "font-normal text-muted-foreground hover:text-gray-700"
-                        }`}
+                    <li className="mt-8 pt-6 border-t flex flex-col gap-4">
+                      <LanguageToggle />
+                      <a
+                        href={`mailto:${profile.contact.email}`}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                       >
-                        About
-                      </Link>
-                    </li>
-
-                    {/* Contact info in mobile menu */}
-                    <li className="mt-8 pt-6 border-t">
-                      <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-                        <a
-                          href={`mailto:${photographer.contact.email}`}
-                          className="hover:text-foreground transition-colors"
-                        >
-                          e: {photographer.contact.email}
-                        </a>
-                        <a
-                          href={`tel:${photographer.contact.phone}`}
-                          className="hover:text-foreground transition-colors"
-                        >
-                          m: {photographer.contact.phone}
-                        </a>
-                      </div>
+                        e: {profile.contact.email}
+                      </a>
                     </li>
                   </ul>
                 </nav>
@@ -105,50 +89,35 @@ export function HeaderNavigation() {
             </Sheet>
           </div>
 
-          {/* Tablet/Desktop: Horizontal Navigation */}
+          {/* Tablet/Desktop: horizontal nav */}
           <nav className="hidden sm:block">
-            <ul className="flex flex-row flex-wrap gap-4 sm:gap-5 lg:gap-6">
-              {series.map((s) => (
-                <li key={s.id}>
-                  <Link
-                    to={`/series/${s.slug}`}
-                    className={`text-sm sm:text-base lg:text-[1.0625rem] leading-[1.375rem] transition-all duration-200 ${
-                      isActive(`/series/${s.slug}`)
-                        ? "font-semibold text-foreground"
-                        : "font-normal text-muted-foreground hover:text-gray-700"
-                    }`}
-                  >
-                    {s.title}
+            <ul className="flex flex-row flex-wrap items-center gap-4 sm:gap-5 lg:gap-6 text-sm sm:text-base lg:text-[1.0625rem]">
+              {navItems.map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className={linkClass(isActive(item.to))}>
+                    {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link
-                  to="/about"
-                  className={`text-sm sm:text-base lg:text-[1.0625rem] leading-[1.375rem] transition-all duration-200 ${
-                    isActive("/about")
-                      ? "font-semibold text-foreground"
-                      : "font-normal text-muted-foreground hover:text-gray-700"
-                  }`}
-                >
-                  About
-                </Link>
+                <LanguageToggle />
               </li>
             </ul>
           </nav>
         </div>
-        {/* Contact Info - Tablet/Desktop Only */}
+
+        {/* Contact - desktop */}
         <div className="hidden md:flex flex-col items-end gap-1 text-sm lg:text-[0.9375rem] text-muted-foreground">
-          <a href={`mailto:${photographer.contact.email}`} className="hover:text-foreground transition-colors py-1">
-            e: {photographer.contact.email}
+          <a href={`mailto:${profile.contact.email}`} className="hover:text-foreground transition-colors py-1">
+            e: {profile.contact.email}
           </a>
-          <a href={`tel:${photographer.contact.phone}`} className="hover:text-foreground transition-colors py-1">
-            m: {photographer.contact.phone}
-          </a>
+          {profile.contact.phone && (
+            <a href={`tel:${profile.contact.phone}`} className="hover:text-foreground transition-colors py-1">
+              m: {profile.contact.phone}
+            </a>
+          )}
         </div>
       </div>
-
-      {/* Bottom Row: Navigation */}
     </div>
   );
 }

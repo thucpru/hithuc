@@ -1,58 +1,48 @@
 import { useEffect } from 'react';
 import { Layout } from '@/components/layout/Layout';
 import { usePortfolio } from '@/context/PortfolioContext';
+import { useT } from '@/context/LanguageContext';
 import { AboutPageLayout } from '@/components/about/AboutPageLayout';
 import { SEO } from '@/components/seo/SEO';
+import { UI_TEXT } from '@/lib/labels';
 
 export default function About() {
-  const { photographer, loading, error } = usePortfolio();
+  const { profile, loading, error } = usePortfolio();
+  const t = useT();
 
-  const structuredData = photographer ? {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: photographer.name,
-    jobTitle: 'Professional Portrait Photographer',
-    description: photographer.tagline,
-    email: photographer.contact.email,
-    telephone: photographer.contact.phone,
-    url: window.location.origin,
-    image: photographer.portraitImage.src,
-    knowsAbout: ['Portrait Photography', 'Documentary Photography', 'Editorial Photography'],
-  } : undefined;
+  const structuredData = profile
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: profile.name,
+        description: t(profile.tagline),
+        email: profile.contact.email,
+        url: typeof window !== 'undefined' ? window.location.origin : undefined,
+        image: profile.avatar,
+        sameAs: profile.socials.map((s) => s.url),
+      }
+    : undefined;
 
-  // Set page title
   useEffect(() => {
-    document.title = photographer 
-      ? `About ${photographer.name} - Portrait Photographer`
-      : 'About - Sarah Chen Photography';
-  }, [photographer]);
+    if (profile) document.title = `${t(UI_TEXT.about)} — ${profile.name}`;
+  }, [profile, t]);
 
   if (loading) {
     return (
       <Layout fullPage>
-        <SEO title="About - Loading..." description="Loading photographer profile" />
-        <div className="flex items-center justify-center h-full">
-          <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" />
-            <p className="mt-4 text-muted-foreground">Loading...</p>
-          </div>
+        <SEO title="About — Loading…" description="Loading profile" />
+        <div className="flex items-center justify-center h-40">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-current border-r-transparent" />
         </div>
       </Layout>
     );
   }
 
-  if (error || !photographer) {
+  if (error || !profile) {
     return (
       <Layout fullPage>
-        <SEO title="About - Error" description="Error loading photographer profile" />
-        <div className="flex items-center justify-center h-full">
-          <div className="text-center max-w-md px-4">
-            <p className="text-destructive font-semibold">Error loading profile</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              {error || "Could not load photographer profile"}
-            </p>
-          </div>
-        </div>
+        <SEO title="About — Error" description="Error loading profile" />
+        <p className="text-destructive font-semibold">{t(UI_TEXT.loadError)}</p>
       </Layout>
     );
   }
@@ -60,13 +50,13 @@ export default function About() {
   return (
     <Layout fullPage>
       <SEO
-        title={`About ${photographer.name} - Portrait Photographer`}
-        description={photographer.tagline}
-        image={photographer.portraitImage.src}
+        title={`${t(UI_TEXT.about)} — ${profile.name}`}
+        description={t(profile.tagline)}
+        image={profile.avatar}
         type="profile"
         structuredData={structuredData}
       />
-      <AboutPageLayout photographer={photographer} />
+      <AboutPageLayout profile={profile} />
     </Layout>
   );
 }

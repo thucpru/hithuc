@@ -1,0 +1,218 @@
+[
+  {
+    "id": "prj-portfolio-cms",
+    "slug": "portfolio-cms",
+    "type": "web",
+    "order": 1,
+    "featured": true,
+    "title": { "vi": "Portfolio CMS", "en": "Portfolio CMS" },
+    "summary": {
+      "vi": "Portfolio cá nhân kèm CMS tự xây trên Cloudflare.",
+      "en": "Personal portfolio with a self-built CMS on Cloudflare."
+    },
+    "description": {
+      "vi": "## Tổng quan\n\nMột portfolio song ngữ với CMS riêng chạy hoàn toàn trên hạ tầng Cloudflare (Workers, D1, R2).\n\n- Quản lý dự án và bài viết qua admin\n- Đăng nhập bằng Cloudflare Access\n- Tải ảnh lên R2, dữ liệu trong D1\n\nGiao diện tối giản, ưu tiên tốc độ và khả năng đọc.",
+      "en": "## Overview\n\nA bilingual portfolio with its own CMS running entirely on Cloudflare (Workers, D1, R2).\n\n- Manage projects and posts from an admin UI\n- Sign in with Cloudflare Access\n- Upload images to R2, content in D1\n\nMinimal interface, optimized for speed and readability."
+    },
+    "coverImage": "https://picsum.photos/seed/portfolio-cms/1200/800",
+    "gallery": [
+      {
+        "id": "portfolio-cms-1",
+        "src": "https://picsum.photos/seed/portfolio-cms-1/1200/800",
+        "alt": "Trang chủ portfolio",
+        "aspectRatio": 1.5,
+        "caption": { "subject": "Landing", "profession": "Trang chủ" },
+        "metadata": { "title": "Trang chủ", "year": "2026", "series": "portfolio-cms" }
+      },
+      {
+        "id": "portfolio-cms-2",
+        "src": "https://picsum.photos/seed/portfolio-cms-2/1200/800",
+        "alt": "Giao diện admin CMS",
+        "aspectRatio": 1.5,
+        "caption": { "subject": "Admin", "profession": "Quản trị" },
+        "metadata": { "title": "Admin", "year": "2026", "series": "portfolio-cms" }
+      }
+    ],
+    "tags": ["Cloudflare", "Workers", "D1", "R2"],
+    "role": "Design & Development",
+    "year": "2026",
+    "stack": ["React", "TypeScript", "Tailwind", "Cloudflare Workers", "D1"],
+    "links": { "live": "https://hithuc.com", "repo": "https://github.com/" }
+  },
+  {
+    "id": "prj-realtime-dashboard",
+    "slug": "realtime-dashboard",
+    "type": "web",
+    "order": 2,
+    "featured": false,
+    "title": { "vi": "Bảng điều khiển thời gian thực", "en": "Realtime Dashboard" },
+    "summary": {
+      "vi": "Dashboard số liệu cập nhật trực tiếp qua WebSocket.",
+      "en": "A metrics dashboard updating live over WebSocket."
+    },
+    "description": {
+      "vi": "## Tổng quan\n\nDashboard hiển thị số liệu theo thời gian thực, dữ liệu đẩy qua WebSocket và biểu đồ vẽ trên canvas để giữ hiệu năng mượt.",
+      "en": "## Overview\n\nA dashboard showing metrics in real time, with data pushed over WebSocket and charts drawn on canvas to keep things smooth."
+    },
+    "coverImage": "https://picsum.photos/seed/realtime-dashboard/1200/800",
+    "gallery": [
+      {
+        "id": "realtime-dashboard-1",
+        "src": "https://picsum.photos/seed/realtime-dashboard-1/1200/800",
+        "alt": "Tổng quan dashboard",
+        "aspectRatio": 1.5,
+        "caption": { "subject": "Overview", "profession": "Tổng quan" },
+        "metadata": { "title": "Overview", "year": "2025", "series": "realtime-dashboard" }
+      }
+    ],
+    "tags": ["WebSocket", "Charts", "Realtime"],
+    "role": "Frontend",
+    "year": "2025",
+    "stack": ["React", "TypeScript", "Canvas"],
+    "links": { "live": "https://example.com" }
+  },
+  {
+    "id": "prj-habit-app",
+    "slug": "habit-tracker-app",
+    "type": "app",
+    "order": 3,
+    "featured": true,
+    "title": { "vi": "App theo dõi thói quen", "en": "Habit Tracker App" },
+    "summary": {
+      "vi": "Ứng dụng di động giúp duy trì thói quen mỗi ngày.",
+      "en": "A mobile app that helps you keep daily habits."
+    },
+    "description": {
+      "vi": "## Tổng quan\n\nỨng dụng theo dõi thói quen với nhắc nhở, chuỗi ngày liên tục và thống kê đơn giản. Hoạt động offline, đồng bộ khi có mạng.",
+      "en": "## Overview\n\nA habit-tracking app with reminders, streaks and simple stats. Works offline and syncs when back online."
+    },
+    "coverImage": "https://picsum.photos/seed/habit-app/1200/800",
+    "gallery": [
+      {
+        "id": "habit-app-1",
+        "src": "https://picsum.photos/seed/habit-app-1/900/1600",
+        "alt": "Màn hình hôm nay",
+        "aspectRatio": 0.5625,
+        "caption": { "subject": "Today", "profession": "Hôm nay" },
+        "metadata": { "title": "Today", "year": "2025", "series": "habit-tracker-app" }
+      },
+      {
+        "id": "habit-app-2",
+        "src": "https://picsum.photos/seed/habit-app-2/900/1600",
+        "alt": "Màn hình thống kê",
+        "aspectRatio": 0.5625,
+        "caption": { "subject": "Stats", "profession": "Thống kê" },
+        "metadata": { "title": "Stats", "year": "2025", "series": "habit-tracker-app" }
+      }
+    ],
+    "tags": ["Mobile", "Offline-first", "PWA"],
+    "role": "Design & Development",
+    "year": "2025",
+    "stack": ["React Native", "TypeScript", "SQLite"],
+    "links": { "store": "https://example.com/app" }
+  },
+  {
+    "id": "prj-pos-app",
+    "slug": "cafe-pos-app",
+    "type": "app",
+    "order": 4,
+    "featured": false,
+    "title": { "vi": "App bán hàng cho quán cà phê", "en": "Café POS App" },
+    "summary": {
+      "vi": "Ứng dụng order và thanh toán cho quán nhỏ.",
+      "en": "An ordering and checkout app for small shops."
+    },
+    "description": {
+      "vi": "## Tổng quan\n\nỨng dụng bán hàng tại quầy: tạo đơn nhanh, in bill, báo cáo doanh thu cuối ngày.",
+      "en": "## Overview\n\nA point-of-sale app: quick order entry, receipt printing and end-of-day revenue reports."
+    },
+    "coverImage": "https://picsum.photos/seed/cafe-pos/1200/800",
+    "gallery": [
+      {
+        "id": "cafe-pos-1",
+        "src": "https://picsum.photos/seed/cafe-pos-1/900/1600",
+        "alt": "Màn hình order",
+        "aspectRatio": 0.5625,
+        "caption": { "subject": "Order", "profession": "Đặt món" },
+        "metadata": { "title": "Order", "year": "2024", "series": "cafe-pos-app" }
+      }
+    ],
+    "tags": ["POS", "Mobile", "Printing"],
+    "role": "Development",
+    "year": "2024",
+    "stack": ["Flutter", "Dart"],
+    "links": {}
+  },
+  {
+    "id": "prj-brand-system",
+    "slug": "brand-design-system",
+    "type": "design",
+    "order": 5,
+    "featured": true,
+    "title": { "vi": "Hệ thống nhận diện thương hiệu", "en": "Brand Design System" },
+    "summary": {
+      "vi": "Bộ nhận diện và design system cho một startup.",
+      "en": "Identity and design system for a startup."
+    },
+    "description": {
+      "vi": "## Tổng quan\n\nXây dựng bộ nhận diện thương hiệu: logo, bảng màu, typography và một design system component sẵn sàng cho sản phẩm.",
+      "en": "## Overview\n\nBuilt a brand identity: logo, color palette, typography and a component design system ready for product use."
+    },
+    "coverImage": "https://picsum.photos/seed/brand-system/1200/800",
+    "gallery": [
+      {
+        "id": "brand-system-1",
+        "src": "https://picsum.photos/seed/brand-system-1/1200/800",
+        "alt": "Bảng màu và typography",
+        "aspectRatio": 1.5,
+        "caption": { "subject": "Tokens", "profession": "Màu & chữ" },
+        "metadata": { "title": "Tokens", "year": "2025", "series": "brand-design-system" }
+      },
+      {
+        "id": "brand-system-2",
+        "src": "https://picsum.photos/seed/brand-system-2/1200/800",
+        "alt": "Thư viện component",
+        "aspectRatio": 1.5,
+        "caption": { "subject": "Components", "profession": "Thành phần" },
+        "metadata": { "title": "Components", "year": "2025", "series": "brand-design-system" }
+      }
+    ],
+    "tags": ["Branding", "Design System", "Figma"],
+    "role": "Design",
+    "year": "2025",
+    "stack": ["Figma", "Illustrator"],
+    "links": { "live": "https://example.com" }
+  },
+  {
+    "id": "prj-landing-design",
+    "slug": "landing-page-design",
+    "type": "design",
+    "order": 6,
+    "featured": false,
+    "title": { "vi": "Thiết kế landing page", "en": "Landing Page Design" },
+    "summary": {
+      "vi": "Thiết kế trang đích chuyển đổi cao cho sản phẩm SaaS.",
+      "en": "A high-converting landing page for a SaaS product."
+    },
+    "description": {
+      "vi": "## Tổng quan\n\nThiết kế landing page tập trung vào thông điệp rõ ràng, nhịp cuộn hợp lý và lời kêu gọi hành động mạnh.",
+      "en": "## Overview\n\nA landing page focused on a clear message, a good scroll rhythm and a strong call to action."
+    },
+    "coverImage": "https://picsum.photos/seed/landing-design/1200/800",
+    "gallery": [
+      {
+        "id": "landing-design-1",
+        "src": "https://picsum.photos/seed/landing-design-1/1200/800",
+        "alt": "Khu vực hero",
+        "aspectRatio": 1.5,
+        "caption": { "subject": "Hero", "profession": "Phần đầu" },
+        "metadata": { "title": "Hero", "year": "2024", "series": "landing-page-design" }
+      }
+    ],
+    "tags": ["Landing", "SaaS", "Figma"],
+    "role": "Design",
+    "year": "2024",
+    "stack": ["Figma"],
+    "links": { "live": "https://example.com" }
+  }
+]

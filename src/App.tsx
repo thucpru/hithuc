@@ -3,14 +3,16 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { PortfolioProvider } from "@/context/PortfolioContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 import { Layout } from "@/components/layout/Layout";
 import { GallerySkeleton } from "@/components/gallery/GallerySkeleton";
 
 // Lazy load page components for code splitting
 const Home = lazy(() => import("./pages/Home"));
-const SeriesPage = lazy(() => import("./pages/SeriesPage"));
+const Work = lazy(() => import("./pages/Work"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const About = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -31,16 +33,22 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <PortfolioProvider>
-          <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/series/:slug" element={<SeriesPage />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </PortfolioProvider>
+        <LanguageProvider>
+          <PortfolioProvider>
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/work" element={<Work />} />
+                <Route path="/work/:type" element={<Work />} />
+                <Route path="/project/:slug" element={<ProjectDetail />} />
+                <Route path="/about" element={<About />} />
+                {/* Legacy photography routes */}
+                <Route path="/series/:slug" element={<Navigate to="/work" replace />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </PortfolioProvider>
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

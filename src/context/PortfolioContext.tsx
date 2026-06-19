@@ -1,24 +1,27 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { PhotographerProfile } from '@/types/photographer';
-import { PortfolioSeries } from '@/types/gallery';
+import { Project, Profile, ProjectType } from '@/types/content';
 
 interface PortfolioState {
-  photographer: PhotographerProfile | null;
-  series: PortfolioSeries[];
+  profile: Profile | null;
+  projects: Project[];
   loading: boolean;
   error: string | null;
 }
 
 interface PortfolioContextType extends PortfolioState {
-  getSeriesBySlug: (slug: string) => PortfolioSeries | undefined;
+  getProjectBySlug: (slug: string) => Project | undefined;
+  getProjectsByType: (type: ProjectType) => Project[];
 }
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 
+const byOrder = (a: Project, b: Project) =>
+  (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER);
+
 export function PortfolioProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<PortfolioState>({
-    photographer: null,
-    series: [],
+    profile: null,
+    projects: [],
     loading: true,
     error: null,
   });
@@ -26,29 +29,28 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // Load photographer profile
-        const photographerResponse = await fetch('/data/photographer.json');
-        const photographerData = await photographerResponse.json();
+        const [profileRes, projectsRes] = await Promise.all([
+          fetch('/data/profile.json'),
+          fetch('/data/projects.json'),
+        ]);
 
-        // Load all series
-        const seriesSlugs = ['portraits', 'documentary', 'editorial'];
-        const seriesPromises = seriesSlugs.map(async (slug) => {
-          const response = await fetch(`/data/series/${slug}.json`);
-          return response.json();
-        });
+        if (!profileRes.ok || !projectsRes.ok) {
+          throw new Error('Failed to fetch portfolio data');
+        }
 
-        const seriesData = await Promise.all(seriesPromises);
+        const profile: Profile = await profileRes.json();
+        const projects: Project[] = await projectsRes.json();
 
         setState({
-          photographer: photographerData,
-          series: seriesData,
+          profile,
+          projects: [...projects].sort(byOrder),
           loading: false,
           error: null,
         });
       } catch (error) {
         setState({
-          photographer: null,
-          series: [],
+          profile: null,
+          projects: [],
           loading: false,
           error: error instanceof Error ? error.message : 'Failed to load portfolio data',
         });
@@ -58,12 +60,11 @@ export function PortfolioProvider({ children }: { children: ReactNode }) {
     loadData();
   }, []);
 
-  const getSeriesBySlug = (slug: string) => {
-    return state.series.find((s) => s.slug === slug);
-  };
+  const getProjectBySlug = (slug: string) => state.projects.find((p) => p.slug === slug);
+  const getProjectsByType = (type: ProjectType) => state.projects.filter((p) => p.type === type);
 
   return (
-    <PortfolioContext.Provider value={{ ...state, getSeriesBySlug }}>
+    <PortfolioContext.Provider value={{ ...state, getProjectBySlug, getProjectsByType }}>
       {children}
     </PortfolioContext.Provider>
   );
