@@ -256,6 +256,8 @@ const OVERRIDES = [
   ["mejed@templyo.io", "thucpru@gmail.com"], // contact email (was template default)
   [" - Majd", " - Hi Thuc"],                 // page-title brand suffix
   ["https://framer.link/nnhGcWR", "/work"],  // template "Get Started" CTA -> Work page
+  // Sellvoxa voice widget: swap the template's tenant for ours (one widget, not two).
+  ["snip_56759c6ba7f14d15a003", "snip_630b90edd8b54e7c9e05"],
   // ...and make that CTA open in the same tab (it's the only New-Tab=true button;
   // `vqeCSP_jL` is Framer's "New Tab" boolean prop). Internal nav shouldn't pop a tab.
   ["vqeCSP_jL:!0", "vqeCSP_jL:!1"],
