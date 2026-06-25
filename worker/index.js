@@ -50,6 +50,18 @@ export default {
       });
     }
 
-    return env.ASSETS.fetch(request);
+    // For everything else, serve the static asset — but make sure HTML carries an
+    // explicit charset in the HTTP header. The static-asset server returns bare
+    // `text/html` (no charset); with `X-Content-Type-Options: nosniff` the browser
+    // then falls back to a locale default and mojibakes UTF-8 punctuation (em-dash
+    // `—` -> `â`). Setting the header is authoritative and overrides any meta tag.
+    const res = await env.ASSETS.fetch(request);
+    const ct = res.headers.get("Content-Type") || "";
+    if (ct.startsWith("text/html") && !/charset/i.test(ct)) {
+      const headers = new Headers(res.headers);
+      headers.set("Content-Type", "text/html; charset=utf-8");
+      return new Response(res.body, { status: res.status, statusText: res.statusText, headers });
+    }
+    return res;
   },
 };

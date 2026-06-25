@@ -248,18 +248,32 @@ const HEAD_INJECT =
   `.catch(function(){toast("Couldn't send — please email thucpru@gmail.com",false);if(btn)btn.style.pointerEvents=''});` +
   `},true)})();</script>`;
 
+// Repair double-encoded UTF-8 (mojibake). Framer's published home page ships
+// some punctuation (em-dash `—`, smart quotes, `✨`) as UTF-8 bytes that were
+// re-read as Latin-1 and re-encoded — e.g. `—` (e2 80 94) becomes
+// `â` (c3 a2 c2 80 c2 94), rendering as "â□□". Each run is a Latin-1 lead byte
+// (Â–ô) followed by continuation bytes (\x80–\xBF); map the chars back to bytes
+// and decode as UTF-8. The replacement-char guard leaves genuine text untouched.
+const fixMojibake = (s) =>
+  s.replace(/[Â-ô][-¿]+/g, (m) => {
+    const dec = Buffer.from(Array.from(m, (c) => c.charCodeAt(0) & 0xff)).toString("utf8");
+    return dec.includes("�") ? m : dec;
+  });
+
 // --- write pages -----------------------------------------------------------
 await rm(join(OUT, "work"), { recursive: true, force: true });
 await rm(join(OUT, "blog"), { recursive: true, force: true });
 for (const { route, html } of pages) {
-  let out = html
+  let out = fixMojibake(html)
     .replaceAll(DOMAIN, "/framer")          // assets -> local
     .replaceAll(LIVE, PROD);                // canonical/og:url -> production
   out = out.replaceAll(
     'content="/framer/assets/BMKOu79jBtM2GOCccyl1NoizDoU.png"',
     `content="${PROD}/framer/assets/BMKOu79jBtM2GOCccyl1NoizDoU.png"`
   );
-  out = out.replace(/<head>/i, `<head>${HEAD_INJECT}`); // badge-hide + scroll-to-top
+  // Put charset first so it stays within the 1024-byte window browsers use for
+  // charset sniffing; HEAD_INJECT is large enough to push the original meta past it.
+  out = out.replace(/<head>/i, `<head><meta charset="utf-8">${HEAD_INJECT}`); // charset + badge-hide + scroll-to-top
   const file = route === "/" ? join(OUT, "index.html") : join(OUT, route, "index.html");
   await mkdir(dirname(file), { recursive: true });
   await writeFile(file, out);
