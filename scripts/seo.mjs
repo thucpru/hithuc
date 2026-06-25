@@ -81,6 +81,106 @@ const PERSON = {
     "Independent builder who designs and ships AI-powered web and mobile products end-to-end.",
 };
 
+// --- search-result metadata (title / description) per route ----------------
+// Google shows the <title> and <meta name="description">. The Framer export
+// leaves the home title bare ("Hi Thuc") and reuses ONE description across
+// home/work/blog (duplicate snippets Google collapses). Override the hub routes
+// with unique, keyword-led copy; other routes keep their own Framer title/desc.
+const BRAND = "Hi Thuc";
+const SUFFIX = ` — ${BRAND}`;
+const META = {
+  "/": {
+    title: "Hi Thuc — AI Web & App Builder, Idea to Live",
+    description:
+      "Hi Thuc designs and builds AI-powered web and mobile products end-to-end — from idea to a live, revenue-ready product. Launch faster, spend less, convert more.",
+  },
+  "/work": {
+    title: `Work${SUFFIX}`,
+    description:
+      "Selected work by Hi Thuc: Sellvoxa (voice AI agent for websites), Lovdes (AI design in Figma), Peachgen (AI creative platform), and Aimatee (AI English app) — built end-to-end.",
+  },
+  "/blog": {
+    title: `Blog${SUFFIX}`,
+    description:
+      "Essays by Hi Thuc on shipping AI products solo: design-to-code loops, AI agents, landing pages that convert, and choosing between web and mobile.",
+  },
+};
+
+// Brand-name typos in the Framer source titles ("Peach Gen", "Sell Voxa").
+const BRAND_FIXES = [
+  ["Peach Gen", "Peachgen"],
+  ["Sell Voxa", "Sellvoxa"],
+];
+const fixBrand = (s) => BRAND_FIXES.reduce((t, [a, b]) => t.split(a).join(b), s);
+const esc = (s) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+// Square favicon set (cropped portrait) + manifest, replacing Framer's
+// non-square portrait icon that Google can't render as a favicon.
+const ICON_LINKS =
+  `<link rel="icon" href="/favicon.ico" sizes="any">` +
+  `<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">` +
+  `<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">` +
+  `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">` +
+  `<link rel="manifest" href="/site.webmanifest">`;
+
+// Rewrite a single <meta> tag's content (matches either attribute order). Adds
+// the tag before </head> if absent. Idempotent.
+function setMeta(html, selector, value) {
+  const re = new RegExp(
+    `<meta(?=[^>]*${selector})[^>]*>`,
+    "i"
+  );
+  const tag =
+    selector.startsWith('property=')
+      ? `<meta property="${selector.slice(10, -1)}" content="${esc(value)}">`
+      : `<meta name="${selector.slice(6, -1)}" content="${esc(value)}">`;
+  return re.test(html) ? html.replace(re, tag) : html.replace(/<\/head>/i, `${tag}</head>`);
+}
+
+// Every blog post ships the SAME generic Framer description. Each post does,
+// however, carry a one/two-sentence "Summary" block right under its title —
+// the perfect, accurate snippet. Pull its text (words are wrapped in per-letter
+// animation spans) so each post gets a unique description that tracks the copy.
+function extractSummary(html) {
+  const m = html.match(/data-framer-name="Summary"[^>]*>(.*?)<\/div>/is);
+  if (!m) return "";
+  const text = decode(m[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")).trim();
+  if (text.length < 40) return "";
+  return text.length > 300 ? text.slice(0, 297).replace(/\s+\S*$/, "") + "…" : text;
+}
+
+// Apply title/description/og/twitter/favicon to a page's <head>. Returns the
+// HTML plus the final {name, description} used for the JSON-LD graph.
+function applyHeadMeta(html, route) {
+  const rawTitle = fixBrand(pick(html, /<title>([^<]*)<\/title>/i).replace(/\s+/g, " ").trim());
+  const override = META[route];
+  const title = override?.title || rawTitle || BRAND;
+  const description =
+    override?.description ||
+    (route.startsWith("/blog/") && extractSummary(html)) ||
+    pick(html, /<meta[^>]*name="description"[^>]*content="([^"]*)"/i) ||
+    "Hi Thuc — AI-powered web & mobile products, designed and built end-to-end.";
+
+  // <title>
+  html = html.replace(/<title>[^<]*<\/title>/i, `<title>${esc(title)}</title>`);
+  // description + social titles/descriptions (keep og:image/url untouched)
+  html = setMeta(html, 'name="description"', description);
+  html = setMeta(html, 'property="og:title"', title);
+  html = setMeta(html, 'property="og:description"', description);
+  html = setMeta(html, 'name="twitter:title"', title);
+  html = setMeta(html, 'name="twitter:description"', description);
+
+  // Favicons: strip Framer's icon/apple-touch/manifest links, inject our set once.
+  html = html
+    .replace(/<link[^>]*rel="(?:icon|apple-touch-icon|manifest)"[^>]*>\s*/gi, "")
+    .replace(/<\/head>/i, `${ICON_LINKS}</head>`);
+
+  // schema's `name` drops the brand suffix (it's the entity/page name).
+  const name = title.replace(/\s*[—-]\s*Hi Thuc\s*$/i, "").trim() || BRAND;
+  return { html, name, description };
+}
+
 // --- per-route JSON-LD graph ----------------------------------------------
 function graphFor(route, { name, description, url, image }) {
   const base = [PERSON];
@@ -174,11 +274,12 @@ async function injectPage(file) {
   let html = await readFile(file, "utf8");
   const route = routeOf(file);
 
-  let name = pick(html, /<title>([^<]*)<\/title>/i).replace(/\s*-\s*Hi Thuc\s*$/i, "").trim();
-  if (!name) name = "Hi Thuc";
-  const description =
-    pick(html, /<meta[^>]*name="description"[^>]*content="([^"]*)"/i) ||
-    "Hi Thuc — AI-powered web & mobile products, designed and built end-to-end.";
+  // Normalise search-result metadata (title/description/og/twitter/favicons)
+  // first, then build the JSON-LD from the SAME final title/description.
+  const applied = applyHeadMeta(html, route);
+  html = applied.html;
+  const name = applied.name;
+  const description = applied.description;
   const canonical = pick(html, /<link[^>]*rel="canonical"[^>]*href="([^"]*)"/i) || absUrl(route);
   const image = absImage(pick(html, /<meta[^>]*property="og:image"[^>]*content="([^"]*)"/i));
 
